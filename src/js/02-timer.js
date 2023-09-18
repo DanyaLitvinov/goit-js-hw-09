@@ -42,20 +42,21 @@ const options = {
       const dateChoosenMs = new Date(input.value.replace(/-/g, '/')).getTime();
       const now = new Date().getTime();
       const timeLeft = dateChoosenMs - now;
-
+  
       const { days, hours, minutes, seconds } = convertMs(timeLeft);
-
+  
       daysValue.innerHTML = days < 10 ? addLeadingZero(days) : days;
       hoursValue.innerHTML = hours < 10 ? addLeadingZero(hours) : hours;
       minutesValue.innerHTML = minutes < 10 ? addLeadingZero(minutes) : minutes;
       secondsValue.innerHTML = seconds < 10 ? addLeadingZero(seconds) : seconds;
-
+  
       if (timeLeft < 1000) {
         clearInterval(timer);
-        startBtn.disabled = false;
+        btnStart.disabled = false; 
       }
     }, 1000);
   }
+  
 
 
   function addLeadingZero(value) {
